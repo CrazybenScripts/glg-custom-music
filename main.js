@@ -11,7 +11,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: url('/path/to/background-image.jpg') no-repeat center center fixed;
+            background: url('/path/to/bc.png') no-repeat center center fixed;
             background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
@@ -66,7 +66,7 @@
 <body>
     <div class="container">
         <!-- Replacing title text with an image -->
-        <img src="/path/to/GLGIO Logo.png" alt="GUIDING LIGHT GENERATOR CUSTOM MUSIC PLAYER" class="title-image">
+        <img src="/path/to/GLGIO.png" alt="GUIDING LIGHT GENERATOR CUSTOM MUSIC PLAYER" class="title-image">
         
         <div class="input-box">
             <input type="text" id="usernameInput" placeholder="Enter Roblox Username">
