@@ -21,9 +21,9 @@
             text-align: center;
         }
 
-        .title {
-            font-size: 2em;
-            font-family: 'Your Custom Font', sans-serif;
+        .title-image {
+            max-width: 100%;
+            height: auto;
             margin-bottom: 20px;
         }
 
@@ -65,7 +65,8 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">GUIDING LIGHT GENERATOR CUSTOM MUSIC PLAYER</div>
+        <!-- Replacing title text with an image -->
+        <img src="/path/to/GLGIO Logo.png" alt="GUIDING LIGHT GENERATOR CUSTOM MUSIC PLAYER" class="title-image">
         
         <div class="input-box">
             <input type="text" id="usernameInput" placeholder="Enter Roblox Username">
