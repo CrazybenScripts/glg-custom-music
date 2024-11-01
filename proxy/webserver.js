@@ -11,7 +11,7 @@ const wss = new WebSocket.Server({ server });
 
 // Discord bot setup
 const bot = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
-const discordToken = process.env.WEBHOOK_URL; // Replace with your bot's token
+const discordToken = process.env.DISCORD_TOKEN; // Replace with your bot's token
 const channelId = '1301742222844100729'; // Replace with the ID of the channel you want to monitor
 
 // WebSocket broadcast function
