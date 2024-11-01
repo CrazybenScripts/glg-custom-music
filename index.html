@@ -74,9 +74,27 @@
         </div>
 
         <div id="connectedMessage" class="connected-message"></div>
+
+        <!-- Audio player element -->
+        <audio id="audioPlayer" controls autoplay style="display: none;"></audio>
     </div>
 
     <script>
+        // WebSocket setup
+        const ws = new WebSocket('ws://localhost:3000'); // Update with your server address if different
+
+        // Listen for WebSocket messages and play audio when a link is received
+        ws.onmessage = (event) => {
+            const { fileLink } = JSON.parse(event.data);
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = fileLink;
+            audioPlayer.style.display = 'block'; // Show audio controls when playing
+            audioPlayer.play();
+        };
+
+        ws.onopen = () => console.log('WebSocket connection opened.');
+        ws.onclose = () => console.log('WebSocket connection closed.');
+
         document.getElementById('enterButton').addEventListener('click', function() {
             const username = document.getElementById('usernameInput').value;
             if (username) {
