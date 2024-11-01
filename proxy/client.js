@@ -1,5 +1,5 @@
 <script>
-    const socket = new WebSocket('ws://localhost:3000/');
+    const socket = new WebSocket('ws://localhost:3000'); // Change to your server's IP if needed
 
     socket.addEventListener('open', function(event) {
         console.log('Connected to WebSocket server');
