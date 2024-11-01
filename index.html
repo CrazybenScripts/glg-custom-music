@@ -79,30 +79,36 @@
         <audio id="audioPlayer" controls autoplay style="display: none;"></audio>
     </div>
 
-    <script>
-        // WebSocket setup
-        const ws = new WebSocket('ws://glgHandler.replit.app'); // Update with your server address if different
+   <script>
+    const ws = new WebSocket('wss://glgHandler.replit.app'); // Use the secure WebSocket connection
 
-        // Listen for WebSocket messages and play audio when a link is received
-        ws.onmessage = (event) => {
-            const { fileLink } = JSON.parse(event.data);
-            const audioPlayer = document.getElementById('audioPlayer');
-            audioPlayer.src = fileLink;
-            audioPlayer.style.display = 'block'; // Show audio controls when playing
-            audioPlayer.play();
-        };
+    ws.onopen = function() {
+        console.log('Connected to WebSocket server');
+    };
 
-        ws.onopen = () => console.log('WebSocket connection opened.');
-        ws.onclose = () => console.log('WebSocket connection closed.');
+    ws.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        console.log('Received:', data.fileLink);
+        // Add logic to play the audio file here
+    };
 
-        document.getElementById('enterButton').addEventListener('click', function() {
-            const username = document.getElementById('usernameInput').value;
-            if (username) {
-                document.getElementById('connectedMessage').textContent = `Connected as ${username}`;
-                document.getElementById('connectedMessage').style.display = 'block';
-                document.querySelector('.input-box').style.visibility = 'hidden';
-            }
-        });
-    </script>
+    ws.onerror = function(error) {
+        console.error('WebSocket error:', error);
+    };
+
+    ws.onclose = function() {
+        console.log('WebSocket connection closed');
+    };
+
+    document.getElementById('enterButton').addEventListener('click', function() {
+        const username = document.getElementById('usernameInput').value;
+        if (username) {
+            document.getElementById('connectedMessage').textContent = `Connected as ${username}`;
+            document.getElementById('connectedMessage').style.display = 'block';
+            document.querySelector('.input-box').style.visibility = 'hidden';
+        }
+    });
+</script>
+
 </body>
 </html>
